@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 
 /*
@@ -33,4 +32,10 @@ __global__ void hello()
 int main(void)
 {
 
-        hello<<< 1, 16>>>();
+        hello<<< 2, 16>>>();
+        cudaDeviceSynchronize();
+
+        return 0;
+}
+
+

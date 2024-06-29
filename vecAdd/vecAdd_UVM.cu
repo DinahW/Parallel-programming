@@ -42,14 +42,14 @@ int main(void)
 
 
   // malloc the host arrays
-//  host_array_a = (float*)malloc(num_bytes);
+  host_array_a = (float*)malloc(num_bytes);//FIXED
   host_array_b = (float*)malloc(num_bytes);
   host_array_c = (float*)malloc(num_bytes);
 
   // cudaMalloc the device arrays
-  cudaMalloc((void**)&device_array_a, num_bytes);
-  cudaMalloc((void**)&device_array_b, num_bytes);
-  cudaMalloc((void**)&device_array_c, num_bytes);
+  //cudaMalloc((void**)&device_array_a, num_bytes);
+  //cudaMalloc((void**)&device_array_b, num_bytes);
+  //cudaMalloc((void**)&device_array_c, num_bytes);
 
   cudaMallocManged(array_a,num_bytes);
   cudaMallocManaged(array_b,num_bytes);
@@ -57,7 +57,7 @@ int main(void)
 
   // if any memory allocation failed, report an error message
   if(host_array_a == 0 || host_array_b == 0 || host_array_c == 0 ||
-     device_array_a == 0 || device_array_b == 0 || device_array_c == 0)
+     array_a == 0 || array_b == 0 || array_c == 0)
   {
     printf("couldn't allocate memory\n");
     return 1;
@@ -85,15 +85,15 @@ int main(void)
   if(num_elements % nThreads) ++nBlocks;
 
   // launch the kernel
-  vector_add<<<nBlocks, nThreads>>>(device_array_a, device_array_b, device_array_c, num_elements);
+  vector_add<<<nBlocks, nThreads>>>(array_a, array_b, array_c, num_elements);
 
   // copy the result back to the host memory space
-  cudaMemcpy(host_array_c, device_array_c, num_bytes, cudaMemcpyDeviceToHost);
+  //cudaMemcpy(host_array_c, device_array_c, num_bytes, cudaMemcpyDeviceToHost);
 
   // print out the first 10 results
   for(int i = 0; i < 10; ++i)
   {
-    printf("result %d: %1.1f + %7.1f = %7.1f\n", i, host_array_a[i], host_array_b[i], host_array_c[i]);
+    printf("result %d: %1.1f + %7.1f = %7.1f\n", i, array_a[i], array_b[i], array_c[i]);
   }
 
   // deallocate memory
@@ -101,9 +101,9 @@ int main(void)
   //free(host_array_b);
   //free(host_array_c);
 
-  cudaFree(device_array_a);
-  cudaFree(device_array_b);
-  cudaFree(device_array_c);
+  cudaFree(array_a);
+  cudaFree(array_b);
+  cudaFree(array_c);
 
   return 0;
 }

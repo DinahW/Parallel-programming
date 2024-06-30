@@ -1,0 +1,12 @@
+The provided code performs a 1D Jacobi iterative solver on a specified problem size (N) over a number of time steps (TSTEPS). 
+It utilizes both CPU and GPU (CUDA) implementations to solve the problem and compares their results for correctness
+
+The primary metric to determine the success of the GPU implementation is whether the 
+output arrays a_output From Gpu and b_output From Gpu match the CPU results (a and b) 
+within the defined percentage difference threshold.
+
+If the test passes (fail == 0), it indicates that the GPU implementation produces results 
+consistent with the CPU, validating the correctness of the parallel implementation.
+
+If the test fails (fail > 0), it suggests discrepancies between CPU and GPU results beyond 
+the acceptable threshold, indicating potential issues in the GPU implementation.

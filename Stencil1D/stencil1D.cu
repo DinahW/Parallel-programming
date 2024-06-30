@@ -11,9 +11,16 @@ __global__ void stencil_1d_simple(int *in, int *out)
 //  int alpha = 1;
   //int beta = 1;
 
-  if(i < NUM_ELEMENTS + RADIUS ){
 
-     /* FIX ME #1 */
+/* FIX ME #1 */ //FIXED
+
+ if (i < NUM_ELEMENTS + RADIUS) {
+    int result = 0;
+    for (int offset = -RADIUS; offset <= RADIUS; offset++) {
+      result += in[i + offset];
+    }
+    out[i] = result;
+
 
   }
 }
@@ -32,6 +39,7 @@ __global__ void stencil_1d_improved(int *in, int *out)
     if (threadIdx.x < RADIUS)
     {
        /* FIXME #5 *///FIXED
+       if (threadIdx.x < RADIUS) {
             temp[lindex - RADIUS] = in[gindex - RADIUS];
             temp[lindex + BLOCK_SIZE] = in[gindex + BLOCK_SIZE];
     }

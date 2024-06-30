@@ -79,18 +79,14 @@ int main(void)
   cudaMemcpy(device_array_a,host_array_a, size, cudaMemcpyHostToDevice); /*FIXME #2/Fixed */
   cudaMemcpy(device_array_b,host_array_b, size, cudaMemcpyHostToDevice);  /*FIXME #2/Fixed */
 
-  // compute c = a + b on the device
-  const size_t nThreads = 256;
-  size_t nBlocks = num_elements / nThreads;
-
   // deal with a possible partial final block
   if(num_elements % nThreads) ++nBlocks;
 
   // launch the kernel
-  vector_add<<<1,N >>>(device_array_a, device_array_b, device_array_c,num_elements);//FIXED
+  vector_add<<<1,n >>>(device_array_a, device_array_b, device_array_c,num_elements);//FIXED
 
   // copy the result back to the host memory space
-  cudaMemcpy(&c, device_array_c, size, cudaMemcpyDeviceToHost);//FIXED
+  cudaMemcpy(host_array_c, device_array_c, size, cudaMemcpyDeviceToHost);//FIXED
 
   // print out the first 10 results
   for(int i = 0; i < 10; ++i)

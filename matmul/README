@@ -1,1 +1,16 @@
+The program shows two kernels performing matrix multiplication, 
+before and after optimization using blocking or tiling the matrix.
 
+The results print out an error, result status, Matrix size, Tile size
+and the throughput of the simple and optimized kernels.
+
+Performance Improvement:
+The throughput of the optimized kernel (matrix_multiply) is observed
+to be higher than that of the simple kernel (matrix_multiply_simple). 
+This indicates that the optimization has improved computational efficiency.
+
+Both "Simple Result" and "Optimized Result" indicate "PASS", 
+meaning that both versions computed the matrix multiplication correctly.
+
+Both versions produce results within an acceptable error margin (eps). The error checking ensures that the optimized
+version maintains correctness while improving performance

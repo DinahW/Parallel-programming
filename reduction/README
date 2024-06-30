@@ -1,2 +1,2 @@
- The program demonstrates 7 versions of the reduction kernels and their 
-throughput, time 
+ The program demonstrates the results of  7 versions of the parallel reduction kernels.
+the results show the throughput increases with the increase of 

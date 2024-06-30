@@ -8,3 +8,14 @@ cudaDeviceSynchronize();: This function call ensures that the CPU waits for all
 previously issued CUDA commands to complete before continuing.
 
 After synchronization, "HELLO WORLD" is printed to the console
+
+Second part
+hello<<< 1, 16>>>();
+When we change 12 to 16, any random character after the 12 is printed out 
+since HELLO WORLD has only 12 characters 
+
+hello<<< 2, 12 >>>();: 
+Launches the hello kernel with 2 blocks and 12 threads per block.
+HELLO WORLD is printed twice.
+
+hello<<< 2, 16>>>();

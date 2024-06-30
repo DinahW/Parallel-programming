@@ -1,5 +1,5 @@
 The first part of the code 
-Every thread prints one character of the message HELLO WORLD
+Every thread prints one character of the message HELLO WORLD!
 
 hello<<<1, 1>>>(); launches the kernel with 1 block and 1 thread per block. 
 This means the kernel will execute once on the GPU.
@@ -7,15 +7,19 @@ This means the kernel will execute once on the GPU.
 cudaDeviceSynchronize();: This function call ensures that the CPU waits for all 
 previously issued CUDA commands to complete before continuing.
 
-After synchronization, "HELLO WORLD" is printed to the console
+After synchronization, "HELLO WORLD!" is printed to the console
 
 Second part
 hello<<< 1, 16>>>();
-When we change 12 to 16, any random character after the 12 is printed out 
-since HELLO WORLD has only 12 characters 
+When we change 12 to 16, means that we now executing the kernel with a single block and 16 threads.
+Since HELLO WORLD has only 12 characters, some threads will print the first characters of HELLO  WORLD! 
+not the whole message.
 
 hello<<< 2, 12 >>>();: 
 Launches the hello kernel with 2 blocks and 12 threads per block.
-HELLO WORLD is printed twice.
+HELLO WORLD! is printed twice.
 
 hello<<< 2, 16>>>();
+Launches a hello kernel with 2 blocks and 16 threads since STR_LENGTH is 12.
+There are more threads than characters in the string, some characters 
+are printed twice and the message is printed twice

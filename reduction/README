@@ -7,3 +7,9 @@ shared memory and thread synchronization mechanisms.
 Each kernel targets different aspects of performance optimization, such as minimizing bank conflicts, 
 reducing warp divergence, and utilizing warp shuffle operations.
 
+The various screenshots shot a varying throughput for the different kernels
+./reduction kernel=0, ./reduction kernel=1 upto 6 used to execute  kernel version (kernel=1 up to kernel=6) 
+within  reduction.
+
+Results show that the effective bandwidth is highest for kernel 6 which uses Multiple adds/threads with 319.55GB/s and 155.2GB/s as the lowest
+for Kernel 0 that utilizes interleaved addressing.

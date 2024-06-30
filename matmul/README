@@ -1,3 +1,6 @@
+ALL THE CODE THAT NEEDS FIXING HAS BEEN FIXED AND COMMENTED ON FIXED
+
+
 The program shows two kernels performing matrix multiplication, 
 before and after optimization using blocking or tiling the matrix.
 

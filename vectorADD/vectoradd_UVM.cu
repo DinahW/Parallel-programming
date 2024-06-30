@@ -92,6 +92,8 @@ int main(void)
 //FIXED
   // copy the result back to the host memory space
   //cudaMemcpy(host_array_c, device_array_c, num_bytes, cudaMemcpyDeviceToHost);
+//FIXED
+ cudaDeviceSynchronize();
 
   // print out the first 10 results
   for(int i = 0; i < 10; ++i)

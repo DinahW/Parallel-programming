@@ -1,7 +1,7 @@
 ALL THE CODE THAT NEEDS FIXING HAS BEEN FIXED AND COMMENTED ON FIXED
 
 
-The provided code performs a 1D Jacobi iterative solver on a specified problem size (N) over a number of time steps (TSTEPS). 
+The program  performs a 1D Jacobi iterative solver on a specified problem size (N) over a number of time steps (TSTEPS). 
 It utilizes both CPU and GPU (CUDA) implementations to solve the problem and compares their results for correctness
 
 The primary metric to determine the success of the GPU implementation is whether the 
@@ -13,4 +13,6 @@ consistent with the CPU, validating the correctness of the parallel implementati
 
 If the test fails (fail > 0), it suggests discrepancies between CPU and GPU results beyond 
 the acceptable threshold, indicating potential issues in the GPU implementation.
+
+The test failed before fixing it and later passed meaning the results were consistent.
 

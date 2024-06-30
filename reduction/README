@@ -1,2 +1,9 @@
- The program demonstrates the results of  7 versions of the parallel reduction kernels.
-the results show the throughput increases with the increase of 
+File: Reduction.cu
+
+The program demonstrates the results of  7 versions of the parallel reduction kernels 
+optimized for different scenarios ensuring efficient utilization of GPU resources like 
+shared memory and thread synchronization mechanisms.
+
+Each kernel targets different aspects of performance optimization, such as minimizing bank conflicts, 
+reducing warp divergence, and utilizing warp shuffle operations.
+

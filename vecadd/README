@@ -1,0 +1,13 @@
+Vector addition on the GPU 
+
+Allocate three arrays on the host
+
+Allocate three arrays on the device
+
+Copy the content of first two arrays to the device
+
+Perform vector addition 
+
+Copy the result back to host
+
+Deallocate the host and device memory

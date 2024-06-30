@@ -1,14 +1,26 @@
 This program shows an example of vector addition
 That is to say C = A + B.
+It computes the element-wise sum of two vectors on the GPU, 
+showing memory allocation, data transfer, and kernel execution on a GPU
 
-
-Vector addition on the GPU 
+Index Calculation in the Kernel
+unsigned int index = blockDim.x * blockIdx.x + threadIdx.x;
 
 Allocate three arrays on the host
+  host_array_a = (float *)malloc(size);
+  host_array_b = (float *)malloc(size);
+  host_array_c = (float *)malloc(size);
 
 Allocate three arrays on the device
+  cudaMalloc((void **)&device_array_a, size);
+  cudaMalloc((void **)&device_array_b, size); 
+  cudaMalloc((void **)&device_array_c, size); 
+
 
 Copy the content of first two arrays to the device
+  cudaMemcpy(device_array_a, a, size, cudaMemcpyHostToDevice); 
+  cudaMemcpy(device_array_b, b, size, cudaMemcpyHostToDevice); 
+
 
 Perform vector addition 
 

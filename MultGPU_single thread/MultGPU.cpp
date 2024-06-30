@@ -106,8 +106,6 @@ void runJacobi1DCUDA(int tsteps, int n, double* A, double* B, double* A_outputFr
   cudaMemcpy(d_A1, &A[n/2], (n/2+1) * sizeof(double), cudaMemcpyHostToDevice);
   cudaMemcpy(d_B1, &B[n/2], (n/2+1) * sizeof(double), cudaMemcpyHostToDevice);
 
-
-
   dim3 block(DIM_THREAD_BLOCK_X, DIM_THREAD_BLOCK_Y);
   dim3 grid((unsigned int)ceil( ((float)n) / ((float)block.x) ), 1);
 
@@ -124,7 +122,7 @@ void runJacobi1DCUDA(int tsteps, int n, double* A, double* B, double* A_outputFr
 	
     double* tmp0 = d_A0; d_A0 = d_B0; d_B0 = tmp0; // swap
     
-	cudaSetDevice(1);
+    cudaSetDevice(1);
     //FIXME/FIXED
     cudaDeviceSynchronize();
 

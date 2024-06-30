@@ -79,6 +79,11 @@ int main(void)
   cudaMemcpy(device_array_a,host_array_a, size, cudaMemcpyHostToDevice); /*FIXME #2/Fixed */
   cudaMemcpy(device_array_b,host_array_b, size, cudaMemcpyHostToDevice);  /*FIXME #2/Fixed */
 
+ // Compute c = a + b on the device
+    const size_t nThreads = 256;
+    size_t nBlocks = num_elements / nThreads;
+
+
   // deal with a possible partial final block
   if(num_elements % nThreads) ++nBlocks;
 

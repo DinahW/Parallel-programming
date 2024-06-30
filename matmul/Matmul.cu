@@ -30,14 +30,11 @@ __global__ void matrix_multiply_simple(float *A, float *B, float *C, size_t N)
    float b = B[k * N + col];
    sum += a * b;
      }
+// write out this thread's result
+  // FIX ME/FIXED
    C[row * N +col] = sum;
 
-}
-
   }
-
-  // write out this thread's result
-  // FIX ME
 
 }
 

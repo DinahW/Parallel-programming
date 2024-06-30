@@ -3,6 +3,10 @@ That is to say C = A + B.
 It computes the element-wise sum of two vectors on the GPU, 
 showing memory allocation, data transfer, and kernel execution on a GPU
 
+The output show a parallel execution of the vector addition operation using CUDA,
+where each thread on the GPU computes one element of the result vector c. 
+It prints out the first 10 elements of the vectors.
+
 Index Calculation in the Kernel
 unsigned int index = blockDim.x * blockIdx.x + threadIdx.x;
 

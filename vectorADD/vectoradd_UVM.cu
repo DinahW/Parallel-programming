@@ -1,4 +1,4 @@
-// This example demonstrates parallel floating point vector
+ce// This example demonstrates parallel floating point vector
 // addition with a simple __global__ function.
 
 #include <stdlib.h>
@@ -68,12 +68,15 @@ int main(void)
   // initialize host_array_a & host_array_b
   for(int i = 0; i < num_elements; ++i)
   {
+
+//FIXED
     // make array a a linear ramp
-    host_array_a[i] = (float)i;
+    array_a[i] = (float)i;
 
     // make array b random
-    host_array_b[i] = (float)rand() / RAND_MAX;
+    array_b[i] = (float)rand() / RAND_MAX;
   }
+
 //FIXED
   // copy arrays a & b to the device memory space
  // cudaMemcpy(device_array_a, host_array_a, num_bytes, cudaMemcpyHostToDevice);
@@ -81,7 +84,7 @@ int main(void)
 
   // compute c = a + b on the device
   const size_t nThreads = 256;
-  size_t nBlocks = num_elements / nThreads;
+  size_t nBlocks = num_elements + nThreads -1 / nThreads;
 
   // deal with a possible partial final block
   if(num_elements % nThreads) ++nBlocks;

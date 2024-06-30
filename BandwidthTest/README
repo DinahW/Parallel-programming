@@ -7,7 +7,8 @@
 The results show that:
 Pageable and Pinned Memory : Using pinned memory generally results in higher bandwidth for both Host to
 Device and Device to Host transfers due to reduced overhead and better optimization 
-of the data transfer process.
+of the data transfer process. However, Device to Device Bandwidth was generally the highest of the three types.
+ making it faster than PCIe transfers.
 
 GPU Model Variation: Different GPUs will have varying bandwidth capabilities. 
 Higher-end models designed for compute-intensive tasks generally exhibit higher bandwidth

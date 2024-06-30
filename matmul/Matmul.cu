@@ -1,4 +1,3 @@
-
 // This example demonstrates the use of shared per-block arrays
 // implement an optimized dense matrix multiplication algorithm.
 // Like the shared_variables.cu example, a per-block __shared__
@@ -21,19 +20,20 @@ __global__ void matrix_multiply_simple(float *A, float *B, float *C, size_t N)
 
   // create a new variable to hold the sum
   // FIX ME/Fixed
-  if((col < N) && (row < N) {
-    double sum = 0;
+  if ((col < N) && (row < N)) {
+    float sum = 0;
     for (int k = 0; k< N; k++){
 
   // perform dot product in a loop
   //FIX ME/Fixed
-   double a = A[row * N +K]{
-   double b = B[k * N + col];
+   float a = A[row * N +K]{
+   float b = B[k * N + col];
    sum += a * b;
      }
    C[row * N +col] = sum;
 
 }
+
   }
 
   // write out this thread's result
@@ -57,13 +57,13 @@ __global__ void matrix_multiply(float *A, float *B, float *C, size_t N)
   __shared__ float BTile[TILE_DIM][TILE_DIM] //FIXME //fixed
 
   // calculate the row & column index of the element
-  int row = by*blockDim.y + ty;
-  int col = by*blockDim.x + tx // FIXME
+  int row = by * blockDim.y + ty;
+  int col = bx * blockDim.x + tx; // FIXME//Fixed
 
   float result = 0;
 
   // loop over the tiles of the input in phases
-  for(int p = 0; p < N/TILE_DIM; ++p)
+  for (int p = 0; p < N/TILE_DIM; ++p)
   {
     // collaboratively load tiles into __shared__
     ATile[ty][tx] = A[row*N + (p*TILE_DIM + tx)]; // FIXME/fixed
@@ -75,8 +75,8 @@ __global__ void matrix_multiply(float *A, float *B, float *C, size_t N)
    __syncthreads();
 
     // do dot product between row of ATile and column of BTile
-    for(int k = 0; k < TILE_DIM; ++k)
-     result+=ATile[ty[k]]*BTile[k[tx]];
+    for (int k = 0; k < TILE_DIM; ++k)
+     result += ATile[ty[k]] * BTile[k[tx]];
 
     // wait until all threads are finished with the data
     // before allowing any thread in this block to continue
@@ -85,9 +85,10 @@ __global__ void matrix_multiply(float *A, float *B, float *C, size_t N)
 
   // write out this thread's result
   //FIX ME
-       result +=C[]; //FIXME//fixed
+  if (row< N && col <N)
+       result = C[row * N + col]; //FIXME//fixed
 
-
+}
 int main(void)
 {
   // create a large workload so we can easily measure the

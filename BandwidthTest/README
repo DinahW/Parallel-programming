@@ -1,1 +1,7 @@
 
+ This  program measures the memcopy bandwidth of the GPU.
+ It can measure device to device copy bandwidth, host to device copy bandwidth
+ for pageable and pinned memory, and device to host copy bandwidth for pageable
+ and pinned memory.
+
+The results show that 

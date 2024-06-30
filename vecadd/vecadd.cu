@@ -1,9 +1,4 @@
-/**
- * Vector addition: C = A + B.
- *
- * This sample is a very basic sample that implements element by element
- * vector addition.
-*/
+
 
 /*Fix the codes that say FIXME*/
 

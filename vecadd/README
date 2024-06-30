@@ -5,7 +5,10 @@ showing memory allocation, data transfer, and kernel execution on a GPU
 
 The output show a parallel execution of the vector addition operation using CUDA,
 where each thread on the GPU computes one element of the result vector c. 
-It prints out the first 10 elements of the vectors.
+
+Output 
+The first 10 elements of host_array_a, host_array_b, and host_array_c 
+are printed to the console to show the computed results of the vector addition
 
 Index Calculation in the Kernel
 unsigned int index = blockDim.x * blockIdx.x + threadIdx.x;

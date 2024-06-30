@@ -1,1 +1,7 @@
+This program is used to query CUDA devices and specifications, outputs a summary, including the CUDA driver version, CUDA runtime version, 
+and the number of CUDA devices detected. It serves as a utility to inspect and gather 
+information about CUDA-capable GPUs installed on a system.
+It also checks if peer-to-peer memory access is possible between two CUDA devices, 
+which is supported by certain combinations of CUDA-capable GPUs.
 
+With this I can understand the capabilities and specifications of their CUDA devices.

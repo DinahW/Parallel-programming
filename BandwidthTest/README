@@ -4,4 +4,13 @@
  for pageable and pinned memory, and device to host copy bandwidth for pageable
  and pinned memory.
 
-The results show that 
+The results show that:
+Pageable and Pinned Memory : Using pinned memory generally results in higher bandwidth for both Host to
+Device and Device to Host transfers due to reduced overhead and better optimization 
+of the data transfer process.
+
+GPU Model Variation: Different GPUs will have varying bandwidth capabilities. 
+Higher-end models designed for compute-intensive tasks generally exhibit higher bandwidth
+
+It was observed that considering different GPUs tesla_v100:1 has the highest bandwidth followed by 
+rtx_a6000:1 then tesla_t4:1

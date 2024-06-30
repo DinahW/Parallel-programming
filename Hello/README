@@ -1,2 +1,10 @@
 The first part of the code 
 Every thread prints one character of the message HELLO WORLD
+
+hello<<<1, 1>>>(); launches the kernel with 1 block and 1 thread per block. 
+This means the kernel will execute once on the GPU.
+
+cudaDeviceSynchronize();: This function call ensures that the CPU waits for all 
+previously issued CUDA commands to complete before continuing.
+
+After synchronization, "HELLO WORLD" is printed to the console

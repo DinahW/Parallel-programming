@@ -3,4 +3,4 @@ The output details various aspects of the benchmark run, including system memory
 In the first case, considering different system information with a higher number of threads, the bandwidth is higher
 compared to when we have few threads.
 
-The bandwidth tends to reduce as we reduce on the number of threads for the second and third scenarios.
+The bandwidth tends to reduce as we reduce on the number of threads to 1 and 4 for the second and third scenarios.

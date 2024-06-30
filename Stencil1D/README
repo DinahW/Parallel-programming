@@ -1,6 +1,9 @@
-The program is divided into two parts with 2 kernels 
+The program  performs 1D stencil operation
 1st kernel: stencil_1D_simple
 Performs stencil with a radius 3 on 1D array
+It computes the stencil sum for each element considering the radius
+It iterates over the range [-RADIUS, RADIUS] and sums the input values.
 
 2nd kernel: stencil_1D_improved
 Uses shared memory to eliminate redundant memory accesses
+It ensures all threads synchronize after loading data into shared memory before performing the stencil computation

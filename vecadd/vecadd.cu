@@ -45,9 +45,9 @@ int main(void)
   float *host_array_c   = NULL;
 
   // malloc the host arrays
-  host_array_a = (float*)malloc(num_bytes);
-  host_array_b = (float*)malloc(num_bytes);
-  host_array_c = (float*)malloc(num_bytes);
+  host_array_a = (float*)malloc(size);
+  host_array_b = (float*)malloc(size);
+  host_array_c = (float*)malloc(size);
 
 
   // cudaMalloc the device arrays
@@ -76,8 +76,8 @@ int main(void)
 
   // copy arrays a & b to the device memory space
   /* fix the parameters needed to copy data to the device */
-  cudaMemcpy(device_array_a, size, cudaMemcpyHostToDevice); /*FIXME #2/Fixed */
-  cudaMemcpy(device_array_b, size, cudaMemcpyHostToDevice); /*FIXME #2/Fixed */
+  cudaMemcpy(device_array_a,host_array_a, size, cudaMemcpyHostToDevice); /*FIXME #2/Fixed */
+  cudaMemcpy(device_array_b,host_array_b, size, cudaMemcpyHostToDevice);  /*FIXME #2/Fixed */
 
   // compute c = a + b on the device
   const size_t nThreads = 256;

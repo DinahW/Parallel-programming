@@ -1,3 +1,15 @@
-This program is aims at modifying the vector addition program 
-so that it used UVM.
-It prints out
+This program aims at modifying the vector addition program 
+so that it uses UVM.
+
+Unified Virtual Memory pointers (array_a, array_b, array_c) are used instead of separate host and device pointers.
+These pointers are allocated with cudaMallocManaged, which allocates memory 
+accessible by both the CPU and GPU.
+
+The kernel Launch, Data initialization, results, and memory deallocation almost remain the 
+same but instead of host_array_a or device_array_a we use UVM pointers (array_a,array_b,array_c)
+
+No need for managing separate host and device memories or perfrom data transfers
+using cudaMemcpy.
+
+
+

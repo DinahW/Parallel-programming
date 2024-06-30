@@ -24,7 +24,6 @@ __global__ void vector_add(const float *a,
   }
 }
 
-
 int main(void)
 {
   // create arrays of 1M elements
@@ -33,17 +32,18 @@ int main(void)
   // compute the size of the arrays in bytes
   const int num_bytes = num_elements * sizeof(float);
 
+//FIXED
   // points to host & device arrays
-  float *device_array_a = NULL;
-  float *device_array_b = NULL;
-  float *device_array_c = NULL;
-  float *host_array_a   = NULL;
-  float *host_array_b   = NULL;
-  float *host_array_c   = NULL;
+  float *array_a = NULL;
+  float *array_b = NULL;
+  float *array_c = NULL;
+  //float *host_array_a   = NULL;
+  //float *host_array_b   = NULL;
+  //float *host_array_c   = NULL;
 
-
+//FIXED
   // malloc the host arrays
-  host_array_a = (float*)malloc(num_bytes);//FIXED
+  host_array_a = (float*)malloc(num_bytes);
   host_array_b = (float*)malloc(num_bytes);
   host_array_c = (float*)malloc(num_bytes);
 
@@ -74,7 +74,7 @@ int main(void)
     // make array b random
     host_array_b[i] = (float)rand() / RAND_MAX;
   }
-
+//FIXED
   // copy arrays a & b to the device memory space
  // cudaMemcpy(device_array_a, host_array_a, num_bytes, cudaMemcpyHostToDevice);
  // cudaMemcpy(device_array_b, host_array_b, num_bytes, cudaMemcpyHostToDevice);
@@ -89,7 +89,7 @@ int main(void)
 //FIXED
   // launch the kernel
   vector_add<<<nBlocks, nThreads>>>(array_a, array_b, array_c, num_elements);
-
+//FIXED
   // copy the result back to the host memory space
   //cudaMemcpy(host_array_c, device_array_c, num_bytes, cudaMemcpyDeviceToHost);
 

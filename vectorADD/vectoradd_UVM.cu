@@ -13,6 +13,7 @@ __global__ void vector_add(const float *a,
                            const size_t n)
 {
   // compute the global element index this thread should process
+  //FIXED
   unsigned int index = threadIdx.x + blockDim.x * blockIdx.x;
 
   // avoid accessing out of bounds elements
@@ -51,6 +52,7 @@ int main(void)
   //cudaMalloc((void**)&device_array_b, num_bytes);
   //cudaMalloc((void**)&device_array_c, num_bytes);
 
+//FIXED
   cudaMallocManged(array_a,num_bytes);
   cudaMallocManaged(array_b,num_bytes);
   cudaMallocManaged(array_c, num_bytes);
@@ -84,6 +86,7 @@ int main(void)
   // deal with a possible partial final block
   if(num_elements % nThreads) ++nBlocks;
 
+//FIXED
   // launch the kernel
   vector_add<<<nBlocks, nThreads>>>(array_a, array_b, array_c, num_elements);
 
@@ -101,6 +104,7 @@ int main(void)
   //free(host_array_b);
   //free(host_array_c);
 
+//FIXED
   cudaFree(array_a);
   cudaFree(array_b);
   cudaFree(array_c);

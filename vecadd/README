@@ -20,9 +20,18 @@ Copy the content of first two arrays to the device
   cudaMemcpy(device_array_a,host_array_a, size, cudaMemcpyHostToDevice); 
   cudaMemcpy(device_array_b,host_array_b, size, cudaMemcpyHostToDevice); 
 
-
 Perform vector addition 
+    const size_t nThreads = 256;
+    size_t nBlocks = num_elements / nThreads;
 
 Copy the result back to host
+  cudaMemcpy(host_array_c, device_array_c, size, cudaMemcpyDeviceToHost);
 
 Deallocate the host and device memory
+    free(host_array_a);
+    free(host_array_b);
+    free(host_array_c);
+
+    cudaFree(device_array_a);
+    cudaFree(device_array_b);
+    cudaFree(device_array_c);

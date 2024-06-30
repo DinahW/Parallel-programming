@@ -1,3 +1,7 @@
+This program shows an example of vector addition
+That is to say C = A + B.
+
+
 Vector addition on the GPU 
 
 Allocate three arrays on the host

@@ -1,1 +1,6 @@
+This programs a STREAM benchmark used to measure sustainable memory bandwidth.
+The output details various aspects of the benchmark run, including system memory usage, number of threads, and performance of different memory operations (Copy, Scale, Add, Triad). 
+In the first case, considering different system information with a higher number of threads, the bandwidth is higher
+compared to when we have few threads.
 
+The bandwidth tends to reduce as we reduce on the number of threads for the second and third scenarios.
